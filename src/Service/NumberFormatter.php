@@ -13,17 +13,17 @@ class NumberFormatter
 {
     public function formatNumber($number)
     {
-        if(abs($number) > 0 && abs($number) < 1000)
+        if(abs($number) > 0 && abs($number) < 999.5)
         {
             $number = round($number, 2);
         }
 
-        if(abs($number) < 99950 && abs($number) >= 1000)
+        if(abs($number) < 99950 && abs($number) >= 999.5)
         {
-            $number = round($number);
+            $number = number_format((float)$number, 0, '.', ' ');
         }
 
-        if(abs($number) < 995000 && abs($number) >= 9950)
+        if(abs($number) < 995000 && abs($number) >= 99950)
         {
             $number = round($number/1000).'K';
         }
